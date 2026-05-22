@@ -1,0 +1,64 @@
+name: Nivora-BedWars
+version: '1.0'
+main: de.qirdpdms.nivoraBedWars.Main
+api-version: '1.21'
+softdepend: [CloudNet-Bridge]
+commands:
+  bedwars:
+    description: Bedwars Verwaltungsbefehl
+    usage: /bedwars <reload|status|forcestart|matchend|build|tp|setup|validate>
+    aliases: [bw]
+    permission: novira.nivorabedwars.admin
+  queue:
+    description: Bedwars Queue
+    usage: /queue <join|leave|status>
+    permission: novira.nivorabedwars.command.queue
+  leave:
+    description: Queue oder Game verlassen
+    usage: /leave
+    permission: novira.nivorabedwars.command.leave
+  bwtest:
+    description: Solo-Test-Command fuer BedWars
+    usage: /bwtest <start|stop|destroybed|kit|help>
+    permission: novira.nivorabedwars.admin
+permissions:
+  novira.nivorabedwars.use:
+    description: Basisnutzung
+    default: true
+  novira.nivorabedwars.command.queue:
+    description: Queue Command nutzen
+    default: true
+  novira.nivorabedwars.command.leave:
+    description: Leave Command nutzen
+    default: true
+  novira.nivorabedwars.admin:
+    description: Admin Zugriff
+    default: op
+  novira.nivorabedwars.reload:
+    description: Plugin neu laden
+    default: op
+  novira.nivorabedwars.feature.forcestart:
+    description: Start erzwingen
+    default: op
+  novira.nivorabedwars.feature.matchend:
+    description: Laufende Matches sofort beenden
+    default: op
+  novira.nivorabedwars.feature.build:
+    description: Build-Modus fur Admins umschalten
+    default: op
+  novira.nivorabedwars.feature.setup:
+    description: Bedwars Setup verwalten
+    default: op
+  novira.nivorabedwars.*:
+    description: Alle Rechte
+    default: op
+    children:
+      novira.nivorabedwars.use: true
+      novira.nivorabedwars.command.queue: true
+      novira.nivorabedwars.command.leave: true
+      novira.nivorabedwars.admin: true
+      novira.nivorabedwars.reload: true
+      novira.nivorabedwars.feature.forcestart: true
+      novira.nivorabedwars.feature.matchend: true
+      novira.nivorabedwars.feature.build: true
+      novira.nivorabedwars.feature.setup: true

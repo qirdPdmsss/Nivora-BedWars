@@ -1,0 +1,123 @@
+maps:
+  bw_map1:
+    lobby-spawn: "world,0,80,0,0,0"
+    min-players: 2
+    max-players: 16
+    generators: {}
+    shops: {}
+    teams:
+      green:
+        display-name: "&aGrun"
+        max-players: 2
+        spawn: "world,0,80,10,0,0"
+        bed: "world,0,80,12,0,0"
+      blue:
+        display-name: "&9Blau"
+        max-players: 2
+        spawn: "world,-10,80,0,0,0"
+        bed: "world,-12,80,0,0,0"
+      yellow:
+        display-name: "&eGelb"
+        max-players: 2
+        spawn: "world,0,80,-10,0,0"
+        bed: "world,0,80,-12,0,0"
+      red:
+        display-name: "&cRot"
+        max-players: 2
+        spawn: "world,10,80,0,0,0"
+        bed: "world,12,80,0,0,0"
+      aqua:
+        display-name: "&bAqua"
+        max-players: 2
+        spawn: "world,20,80,10,0,0"
+        bed: "world,22,80,12,0,0"
+      white:
+        display-name: "&fWeiss"
+        max-players: 2
+        spawn: "world,-20,80,10,0,0"
+        bed: "world,-22,80,12,0,0"
+      pink:
+        display-name: "&dPink"
+        max-players: 2
+        spawn: "world,20,80,-10,0,0"
+        bed: "world,22,80,-12,0,0"
+      gray:
+        display-name: "&8Grau"
+        max-players: 2
+        spawn: "world,-20,80,-10,0,0"
+        bed: "world,-22,80,-12,0,0"
+  bw_map2:
+    lobby-spawn: "world,0,80,0,0,0"
+    min-players: 2
+    max-players: 8
+    generators: {}
+    shops: {}
+    teams:
+      green:
+        display-name: "&aGrun"
+        max-players: 2
+        spawn: "world,0,80,20,0,0"
+        bed: "world,0,80,22,0,0"
+      blue:
+        display-name: "&9Blau"
+        max-players: 2
+        spawn: "world,-20,80,0,0,0"
+        bed: "world,-22,80,0,0,0"
+      yellow:
+        display-name: "&eGelb"
+        max-players: 2
+        spawn: "world,0,80,-20,0,0"
+        bed: "world,0,80,-22,0,0"
+      red:
+        display-name: "&cRot"
+        max-players: 2
+        spawn: "world,20,80,0,0,0"
+        bed: "world,22,80,0,0,0"
+  bw_map3:
+    lobby-spawn: "world,0,80,0,0,0"
+    min-players: 2
+    max-players: 16
+    generators: {}
+    shops: {}
+    teams:
+      green:
+        display-name: "&aGrun"
+        max-players: 2
+        spawn: "world,0,80,30,0,0"
+        bed: "world,0,80,32,0,0"
+      blue:
+        display-name: "&9Blau"
+        max-players: 2
+        spawn: "world,-30,80,0,0,0"
+        bed: "world,-32,80,0,0,0"
+      yellow:
+        display-name: "&eGelb"
+        max-players: 2
+        spawn: "world,0,80,-30,0,0"
+        bed: "world,0,80,-32,0,0"
+      red:
+        display-name: "&cRot"
+        max-players: 2
+        spawn: "world,30,80,0,0,0"
+        bed: "world,32,80,0,0,0"
+      aqua:
+        display-name: "&bAqua"
+        max-players: 2
+        spawn: "world,40,80,10,0,0"
+        bed: "world,42,80,12,0,0"
+      white:
+        display-name: "&fWeiss"
+        max-players: 2
+        spawn: "world,-40,80,10,0,0"
+        bed: "world,-42,80,12,0,0"
+      pink:
+        display-name: "&dPink"
+        max-players: 2
+        spawn: "world,40,80,-10,0,0"
+        bed: "world,42,80,-12,0,0"
+      gray:
+        display-name: "&8Grau"
+        max-players: 2
+        spawn: "world,-40,80,-10,0,0"
+        bed: "world,-42,80,-12,0,0"
+

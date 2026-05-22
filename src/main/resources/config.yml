@@ -1,0 +1,942 @@
+mode: GAME
+
+settings:
+  plugin-name-key: nivorabedwars
+
+queue:
+  task-name: Bedwars
+  min-players: 1
+  max-players: 16
+  tick-interval-ticks: 20
+  verbose-logging: false
+  service-reservation-seconds: 20
+  map-rotation:
+    - bw_map1
+    - bw_map2
+    - bw_map3
+
+lobby:
+  join-item:
+    enabled: false
+    material: COMPASS
+    slot: 4
+    name: "&7Bedwars spielen"
+    lore:
+      - "&7Klicke, um der Warteschlange beizutreten."
+
+cloudnet:
+  static-only: true
+  static-services:
+    - Bedwars-1-1
+    - Bedwars-2-1
+    - Bedwars-3-1
+  service-map-assignments:
+    Bedwars-1-1: bw_map1
+    Bedwars-2-1: bw_map2
+    Bedwars-3-1: bw_map3
+  fallback-service: Lobby-1
+  commands:
+    start: ""
+    connect: ""
+
+game:
+  service-name: ""
+  arena-maps:
+    - bw_map1
+    - bw_map2
+    - bw_map3
+  map-id: bw_map1
+  start-countdown-seconds: 10
+  respawn-delay-seconds: 5
+  reset-delay-seconds: 10
+  rejoin-reservation-seconds: 30
+
+  respawn-restore:
+    swords: true
+    armor: true
+    tools: true
+    bow: true
+
+  disable-hunger: true
+  block-item-drops: true
+
+  drops:
+    ground-whitelist:
+      - IRON_INGOT
+      - GOLD_INGOT
+      - DIAMOND
+      - EMERALD
+      - END_STONE
+      - TNT
+      - "#WOOL"
+
+  friendly-fire: false
+  allow-damage-in-waiting: false
+
+  endgame:
+    bed-destruction-after-seconds: 900
+    sudden-death-after-seconds: 1200
+
+  upgrades:
+    costs:
+      protection: [3, 6, 9, 12]
+      haste: [3, 5]
+      forge: [3, 5, 7]
+      bow-power: [5, 8, 11]
+      bow-punch: [6, 10]
+
+  traps:
+    max-active: 2
+    rearm-ms: 4000
+    alarm:
+      glowing-ticks: 100
+    blind:
+      blindness-ticks: 80
+      slowness-ticks: 80
+    knock:
+      horizontal: 1.15
+      vertical: 0.45
+    silence:
+      duration-ms: 5000
+
+  void-rescue:
+    teleport-y-offset: 6.0
+    min-safe-y-buffer: 6.0
+    upward-velocity: 1.1
+    slow-falling-ticks: 120
+    platform:
+      enabled: true
+      lifetime-ticks: 100
+
+  special-items:
+    tnt:
+      cooldown-ms: 600
+      fuse-ticks: 40
+      yield: 3.0
+      block-radius: 3.8
+      damage-multiplier: 1.0
+      self-damage-multiplier: 1.0
+      no-gravity: false
+    breach-tnt:
+      cooldown-ms: 750
+      fuse-ticks: 42
+      yield: 4.2
+      block-radius: 5.1
+      damage-multiplier: 0.6
+      self-damage-multiplier: 0.55
+      no-gravity: false
+    jump-tnt:
+      cooldown-ms: 650
+      fuse-ticks: 34
+      yield: 2.0
+      block-radius: 2.9
+      damage-multiplier: 0.55
+      self-damage-multiplier: 0.28
+      owner-boost-horizontal: 1.55
+      owner-boost-vertical: 1.18
+      no-gravity: false
+    cluster-tnt:
+      cooldown-ms: 1400
+      fuse-ticks: 36
+      yield: 2.8
+      block-radius: 3.6
+      damage-multiplier: 0.82
+      self-damage-multiplier: 0.72
+      child-count: 3
+      child-fuse-ticks: 14
+      child-spread: 0.95
+      no-gravity: false
+    sticky-tnt:
+      cooldown-ms: 850
+      fuse-ticks: 42
+      yield: 3.35
+      block-radius: 4.0
+      damage-multiplier: 1.0
+      self-damage-multiplier: 0.9
+      no-gravity: true
+    bridge-egg:
+      cooldown-ms: 300
+      trail-lifetime-ticks: 60
+      max-placed-blocks: 18
+      hit-placed-blocks: 8
+    fireball:
+      cooldown-ms: 600
+      damage: 8.0
+      damage-radius: 4.5
+      block-radius: 3.2
+      knockback-horizontal: 1.2
+      knockback-vertical: 0.58
+      self-damage-multiplier: 0.75
+      fire-ticks: 80
+    ender-pearl:
+      cooldown-ms: 6000
+      allow-damage: true
+
+  spectator:
+    compass-name: "&bSpectator-Kompass"
+
+  ui:
+    sounds:
+      bed-break:
+        sound: ENTITY_ENDER_DRAGON_GROWL
+        volume: 0.35
+        pitch: 1.6
+      final-kill:
+        sound: ENTITY_WITHER_DEATH
+        volume: 0.25
+        pitch: 1.8
+      win:
+        sound: UI_TOAST_CHALLENGE_COMPLETE
+        volume: 0.7
+        pitch: 1.0
+      spectator-menu-open:
+        sound: UI_BUTTON_CLICK
+        volume: 0.7
+        pitch: 1.2
+      trap-trigger:
+        sound: BLOCK_NOTE_BLOCK_BIT
+        volume: 0.85
+        pitch: 1.4
+      void-rescue:
+        sound: ITEM_TOTEM_USE
+        volume: 0.8
+        pitch: 1.25
+
+  performance:
+    item-cleanup-interval-seconds: 10
+    sidebar-refresh-interval-seconds: 2
+    match-end-world-item-scan: false
+    shop-click-cooldown-ms: 120
+    shop-interact-cooldown-ms: 250
+
+  monitoring:
+    enabled: true
+    debug: false
+    diagnostics-interval-seconds: 20
+    warn-cooldown-seconds: 60
+
+  post-match:
+    return-to-fallback: true
+    delay-seconds: 5
+
+  generators:
+    iron:
+      material: IRON_INGOT
+      tiers:
+        stage1:
+          after-seconds: 0
+          interval-ticks: 1
+          cap: 48
+        stage2:
+          after-seconds: 180
+          interval-ticks: 10
+          cap: 64
+
+    gold:
+      material: GOLD_INGOT
+      tiers:
+        stage1:
+          after-seconds: 0
+          interval-ticks: 8
+          cap: 16
+        stage2:
+          after-seconds: 240
+          interval-ticks: 50
+          cap: 24
+
+    team-iron:
+      material: IRON_INGOT
+      tiers:
+        stage1:
+          after-seconds: 0
+          interval-ticks: 1
+          cap: 48
+
+    team-gold:
+      material: GOLD_INGOT
+      tiers:
+        stage1:
+          after-seconds: 0
+          interval-ticks: 8
+          cap: 16
+
+    diamond:
+      material: DIAMOND
+      tiers:
+        stage1:
+          after-seconds: 0
+          interval-ticks: 20
+          cap: 4
+        stage2:
+          after-seconds: 180
+          interval-ticks: 15
+          cap: 6
+        stage3:
+          after-seconds: 420
+          interval-ticks: 10
+          cap: 8
+
+    emerald:
+      material: EMERALD
+      tiers:
+        stage1:
+          after-seconds: 60
+          interval-ticks: 30
+          cap: 2
+        stage2:
+          after-seconds: 300
+          interval-ticks: 20
+          cap: 4
+        stage3:
+          after-seconds: 540
+          interval-ticks: 10
+          cap: 6
+
+  shops:
+    item:
+      villager-name: "&eItem-Shop"
+      gui-title: "&8Item-Shop"
+      categories:
+        blocks:
+          display-name: "&eBlöcke"
+          icon: WHITE_WOOL
+          slot: 2
+        weapons:
+          display-name: "&cWaffen"
+          icon: IRON_SWORD
+          slot: 3
+        tools:
+          display-name: "&6Werkzeuge"
+          icon: IRON_PICKAXE
+          slot: 4
+        specials:
+          display-name: "&dSpezial"
+          icon: TNT
+          slot: 5
+        abilities:
+          display-name: "&bFähigkeiten"
+          icon: NETHER_STAR
+          slot: 6
+
+      offers:
+        wool:
+          category: blocks
+          slot: 20
+          display-name: "&fWolle x16"
+          icon: WHITE_WOOL
+          amount: 16
+          currency: IRON_INGOT
+          cost: 6
+
+        oak-planks:
+          category: blocks
+          slot: 21
+          display-name: "&6Holz x12"
+          icon: OAK_PLANKS
+          amount: 12
+          currency: IRON_INGOT
+          cost: 10
+
+        end-stone:
+          category: blocks
+          slot: 22
+          display-name: "&7Endstein x12"
+          icon: END_STONE
+          amount: 12
+          currency: IRON_INGOT
+          cost: 28
+
+        glass:
+          category: blocks
+          slot: 23
+          display-name: "&bGlas x8"
+          icon: GLASS
+          amount: 8
+          currency: IRON_INGOT
+          cost: 18
+
+        stone-sword:
+          category: weapons
+          slot: 20
+          display-name: "&7Steinschwert"
+          icon: STONE_SWORD
+          amount: 1
+          currency: IRON_INGOT
+          cost: 14
+
+        iron-sword:
+          category: weapons
+          slot: 21
+          display-name: "&fEisenschwert"
+          icon: IRON_SWORD
+          amount: 1
+          currency: GOLD_INGOT
+          cost: 9
+
+        bow:
+          category: weapons
+          slot: 22
+          display-name: "&6Bogen"
+          icon: BOW
+          amount: 1
+          currency: GOLD_INGOT
+          cost: 14
+
+        arrows:
+          category: weapons
+          slot: 23
+          display-name: "&fPfeile x8"
+          icon: ARROW
+          amount: 8
+          currency: GOLD_INGOT
+          cost: 4
+
+        fireball:
+          category: weapons
+          slot: 24
+          display-name: "&cFeuerball"
+          icon: FIRE_CHARGE
+          amount: 1
+          currency: GOLD_INGOT
+          cost: 12
+
+        pickaxe:
+          category: tools
+          slot: 20
+          display-name: "&6Spitzhacke"
+          icon: IRON_PICKAXE
+          amount: 1
+          currency: IRON_INGOT
+          cost: 10
+
+        axe:
+          category: tools
+          slot: 21
+          display-name: "&6Axt"
+          icon: IRON_AXE
+          amount: 1
+          currency: IRON_INGOT
+          cost: 8
+
+        shears:
+          category: tools
+          slot: 22
+          display-name: "&fSchere"
+          icon: SHEARS
+          amount: 1
+          currency: IRON_INGOT
+          cost: 16
+
+        golden-apple:
+          category: specials
+          slot: 20
+          display-name: "&6Goldapfel"
+          icon: GOLDEN_APPLE
+          amount: 1
+          currency: GOLD_INGOT
+          cost: 4
+
+        ender-pearl:
+          category: specials
+          slot: 22
+          display-name: "&aEnderperle"
+          icon: ENDER_PEARL
+          amount: 1
+          currency: EMERALD
+          cost: 5
+
+        bridge-egg:
+          category: specials
+          slot: 23
+          display-name: "&eBridge Egg"
+          icon: EGG
+          amount: 1
+          currency: EMERALD
+          cost: 3
+
+        knockback-stick:
+          category: specials
+          slot: 24
+          display-name: "&dKnockback-Stick"
+          icon: STICK
+          amount: 1
+          currency: GOLD_INGOT
+          cost: 8
+
+        tnt:
+          category: specials
+          slot: 29
+          display-name: "&cTNT"
+          icon: TNT
+          amount: 1
+          currency: GOLD_INGOT
+          cost: 10
+
+        breach-tnt:
+          category: specials
+          slot: 30
+          display-name: "&6Breach-TNT"
+          icon: TNT
+          amount: 1
+          currency: GOLD_INGOT
+          cost: 14
+
+        jump-tnt:
+          category: specials
+          slot: 31
+          display-name: "&bJump-TNT"
+          icon: TNT
+          amount: 1
+          currency: GOLD_INGOT
+          cost: 12
+
+        cluster-tnt:
+          category: specials
+          slot: 32
+          display-name: "&dCluster-TNT"
+          icon: TNT
+          amount: 1
+          currency: EMERALD
+          cost: 3
+
+        sticky-tnt:
+          category: specials
+          slot: 33
+          display-name: "&eSticky-TNT"
+          icon: TNT
+          amount: 1
+          currency: GOLD_INGOT
+          cost: 16
+
+        dash:
+          category: abilities
+          slot: 20
+          display-name: "&bDash"
+          icon: FEATHER
+          amount: 1
+          currency: GOLD_INGOT
+          cost: 5
+
+        berserker:
+          category: abilities
+          slot: 21
+          display-name: "&cBerserker"
+          icon: BLAZE_POWDER
+          amount: 1
+          currency: EMERALD
+          cost: 2
+
+        shield:
+          category: abilities
+          slot: 22
+          display-name: "&bSchild"
+          icon: NETHER_STAR
+          amount: 1
+          currency: GOLD_INGOT
+          cost: 7
+
+        builder:
+          category: abilities
+          slot: 23
+          display-name: "&6Baumeister"
+          icon: BRICK
+          amount: 1
+          currency: GOLD_INGOT
+          cost: 4
+
+        tracker:
+          category: abilities
+          slot: 24
+          display-name: "&aTracker"
+          icon: COMPASS
+          amount: 1
+          currency: EMERALD
+          cost: 2
+
+        void-rescue:
+          category: abilities
+          slot: 25
+          display-name: "&bRettungsfeder"
+          icon: PHANTOM_MEMBRANE
+          amount: 1
+          currency: EMERALD
+          cost: 3
+
+    upgrade:
+      villager-name: "&bUpgrade-Shop"
+      gui-title: "&8Team- und Eigenupgrades"
+      categories:
+        team-upgrades:
+          display-name: "&bTeam-Upgrades"
+          icon: SHIELD
+          slot: 2
+        traps:
+          display-name: "&dFallen"
+          icon: TRIPWIRE_HOOK
+          slot: 4
+        personal-upgrades:
+          display-name: "&dEigene Upgrades"
+          icon: NETHER_STAR
+          slot: 6
+
+      offers:
+        protection:
+          category: team-upgrades
+          slot: 20
+          display-name: "&bSchutz"
+          icon: IRON_CHESTPLATE
+          amount: 1
+          currency: DIAMOND
+          cost: 3
+
+        sharpness:
+          category: team-upgrades
+          slot: 21
+          display-name: "&cSchärfe"
+          icon: IRON_SWORD
+          amount: 1
+          currency: DIAMOND
+          cost: 4
+
+        haste:
+          category: team-upgrades
+          slot: 22
+          display-name: "&eEile"
+          icon: GOLDEN_PICKAXE
+          amount: 1
+          currency: DIAMOND
+          cost: 3
+
+        forge:
+          category: team-upgrades
+          slot: 23
+          display-name: "&6Schmiede"
+          icon: FURNACE
+          amount: 1
+          currency: DIAMOND
+          cost: 3
+
+        bow-power:
+          category: team-upgrades
+          slot: 25
+          display-name: "&cBogenstärke"
+          icon: BOW
+          amount: 1
+          currency: DIAMOND
+          cost: 5
+
+        bow-punch:
+          category: team-upgrades
+          slot: 34
+          display-name: "&eBogenstoß"
+          icon: ARROW
+          amount: 1
+          currency: EMERALD
+          cost: 6
+
+        bow-flame:
+          category: team-upgrades
+          slot: 43
+          display-name: "&6Flammenbogen"
+          icon: BLAZE_POWDER
+          amount: 1
+          currency: EMERALD
+          cost: 8
+
+        alarm-trap:
+          category: traps
+          slot: 19
+          display-name: "&dAlarmfalle"
+          icon: TRIPWIRE_HOOK
+          amount: 1
+          currency: DIAMOND
+          cost: 3
+
+        blind-trap:
+          category: traps
+          slot: 20
+          display-name: "&5Blendfalle"
+          icon: INK_SAC
+          amount: 1
+          currency: DIAMOND
+          cost: 3
+
+        knock-trap:
+          category: traps
+          slot: 21
+          display-name: "&6Rückstoßfalle"
+          icon: WIND_CHARGE
+          amount: 1
+          currency: DIAMOND
+          cost: 4
+
+        silence-trap:
+          category: traps
+          slot: 22
+          display-name: "&8Stillefalle"
+          icon: ECHO_SHARD
+          amount: 1
+          currency: DIAMOND
+          cost: 4
+
+        iron-armor:
+          category: personal-upgrades
+          slot: 20
+          display-name: "&fEisenrüstung"
+          icon: IRON_CHESTPLATE
+          amount: 1
+          currency: GOLD_INGOT
+          cost: 20
+
+        diamond-armor:
+          category: personal-upgrades
+          slot: 21
+          display-name: "&bDiamantrüstung"
+          icon: DIAMOND_CHESTPLATE
+          amount: 1
+          currency: EMERALD
+          cost: 7
+
+        diamond-sword:
+          category: personal-upgrades
+          slot: 22
+          display-name: "&bDiamantschwert"
+          icon: DIAMOND_SWORD
+          amount: 1
+          currency: EMERALD
+          cost: 6
+
+        dash:
+          category: personal-upgrades
+          slot: 23
+          display-name: "&bDash"
+          icon: FEATHER
+          amount: 1
+          currency: GOLD_INGOT
+          cost: 8
+
+        berserker:
+          category: personal-upgrades
+          slot: 24
+          display-name: "&cBerserker"
+          icon: BLAZE_POWDER
+          amount: 1
+          currency: EMERALD
+          cost: 3
+
+        builder:
+          category: personal-upgrades
+          slot: 29
+          display-name: "&6Baumeister"
+          icon: BRICK
+          amount: 1
+          currency: GOLD_INGOT
+          cost: 6
+
+        shield:
+          category: personal-upgrades
+          slot: 30
+          display-name: "&bSchild"
+          icon: NETHER_STAR
+          amount: 1
+          currency: GOLD_INGOT
+          cost: 9
+
+        tracker:
+          category: personal-upgrades
+          slot: 31
+          display-name: "&aTracker"
+          icon: COMPASS
+          amount: 1
+          currency: EMERALD
+          cost: 2
+
+maps:
+  bw_map1:
+    lobby-spawn: bw_map1,-113.43020763267967,21.0,25.43554748121232,178.9502,2.2499883
+    min-players: 2
+    max-players: 16
+    generators:
+      emerald-1:
+        location: bw_map1,-113.56302948697434,21.0,23.671548999317864,-0.14994468,5.099996
+        type: emerald
+      emerald-2:
+        location: bw_map1,-111.68770513349507,21.0,25.549249583674484,90.90007,3.4499972
+        type: emerald
+      emerald-3:
+        location: bw_map1,-113.51738285612163,21.0,27.533663597066816,-179.84991,1.1999931
+        type: emerald
+      emerald-4:
+        location: bw_map1,-115.539597211213,21.0,25.53339577391801,-88.79962,1.199995
+        type: emerald
+      diamond-1:
+        location: bw_map1,-90.55327987373424,21.0,49.40180469457647,140.10187,30.75015
+        type: diamond
+      diamond-2:
+        location: bw_map1,-70.69999998807907,20.0,25.394259986253452,87.15167,8.10017
+        type: diamond
+      diamond-3:
+        location: bw_map1,-89.70081966185249,21.0,2.5488578983983072,43.65155,26.100163
+        type: diamond
+      diamond-4:
+        location: bw_map1,-113.59710129981214,20.0,-17.30000001192093,-7.9488525,6.0001535
+        type: diamond
+      diamond-5:
+        location: bw_map1,-136.27376650372864,21.0,1.485878082478064,-42.44867,24.300127
+        type: diamond
+      diamond-6:
+        location: bw_map1,-156.30000001192093,20.0,25.59062457847699,-92.249756,17.25005
+        type: diamond
+      diamond-7:
+        location: bw_map1,-137.31696899287113,21.0,48.31962919906158,-134.40051,24.150019
+        type: diamond
+      diamond-8:
+        location: bw_map1,-113.48729751728058,20.0,68.30000001192093,174.89886,19.800009
+        type: diamond
+
+    teams:
+      green:
+        display-name: "&aGrün"
+        max-players: 2
+        spawn: bw_map1,-166.54074099230698,25.0,-23.55338210611006,-1.9822998,25.667969
+        bed: bw_map1,-161.4312465554675,28.5625,-24.06164146268482,-2.4318848,20.267952
+        generator: bw_map1,-163.39522553380868,23.0,-22.339451814275733,1.767456,18.91795
+        item-shop: bw_map1,-164.66646985057523,20.0,-25.487237648016016,-0.8734228,1.9187571
+        upgrade-shop: bw_map1,-162.48533597105407,20.0,-25.489879204747528,0.02659902,-0.18127002
+
+      blue:
+        display-name: "&9Blau"
+        max-players: 2
+        spawn: bw_map1,-65.30000001192093,24.0,-27.418217763998996,89.70041,17.550043
+        bed: bw_map1,-65.24531827638528,28.5625,-22.55112376132484,89.8512,19.650032
+        generator: bw_map1,-64.53246634807209,23.0,-23.48804880976235,2.0673828,20.117989
+        item-shop: bw_map1,-63.464969537103165,20.0,-25.518066189392258,90.33093,1.1999967
+        upgrade-shop: bw_map1,-63.513858106333885,20.0,-23.439862664764927,90.33093,1.1999967
+
+      yellow:
+        display-name: "&eGelb"
+        max-players: 2
+        spawn: bw_map1,-60.539209597487904,25.0,74.64541176702213,-177.3335,29.867796
+        bed: bw_map1,-65.41290239325885,28.5625,74.18250762602457,174.86548,34.217747
+        generator: bw_map1,-63.44867519186128,22.0,74.3344138351633,-178.23328,30.617777
+        item-shop: bw_map1,-62.54439694649588,20.0,76.47740500049902,-179.22281,0.60006595
+        upgrade-shop: bw_map1,-64.46396646916892,20.0,76.52379605426064,178.9772,3.6000686
+
+      red:
+        display-name: "&cRot"
+        max-players: 2
+        spawn: bw_map1,-162.52165504104832,25.0,78.60082892943501,-92.1322,35.41789
+        bed: bw_map1,-161.82720784660899,28.5625,73.63942211818642,-102.93091,36.01786
+        generator: bw_map1,-161.31129882652388,22.0,75.56459780196084,-93.33191,37.81788
+        item-shop: bw_map1,-164.46305663969835,20.0,76.48995042371214,-89.67348,0.44999254
+        upgrade-shop: bw_map1,-164.489863485472,20.0,74.4951234531854,-89.67345,-1.0499973
+
+      aqua:
+        display-name: "&bAqua"
+        max-players: 2
+        spawn: bw_map1,-41.23386356670416,24.0,22.530225058159477,89.55003,-0.450037
+        bed: bw_map1,-43.96211076034038,28.5625,26.33489911107749,86.25006,66.14997
+        generator: bw_map1,-43.55026316874149,22.0,24.492540384499616,90.300064,6.9000006
+        item-shop: bw_map1,-42.42629092084175,20.0,25.584253483173775,90.78104,2.146656
+        upgrade-shop: bw_map1,-42.599017569978294,20.0,27.450446669511685,90.03122,-0.14998938
+
+      white:
+        display-name: "&fWeiss"
+        max-players: 2
+        spawn: bw_map1,-110.48399526396297,24.0,97.47486524843951,177.26892,28.817856
+        bed: bw_map1,-114.60708327746951,28.5625,94.99300480632128,179.07043,36.617836
+        generator: bw_map1,-111.5699792622203,22.0,94.39623102627192,172.62012,30.767817
+        item-shop: bw_map1,-113.45753477511317,20.0,96.42695975602891,179.77637,3.4768414
+        upgrade-shop: bw_map1,-115.55246011447204,20.0,96.4474009259705,179.6258,1.37688
+
+      pink:
+        display-name: "&dPink"
+        max-players: 2
+        spawn: bw_map1,-185.4323789781818,24.0,28.46931380476641,-91.68237,26.267931
+        bed: bw_map1,-182.83494949185337,28.5625,24.57293859782472,-91.982056,34.217937
+        generator: bw_map1,-182.26217208301347,22.0,27.614881890857305,-94.232666,25.217936
+        item-shop: bw_map1,-184.56106784034952,20.0,26.4776864442734,-88.6234,0.1499839
+        upgrade-shop: bw_map1,-184.085176325816,20.0,24.53546315508331,-88.6234,-1.3500148
+
+      gray:
+        display-name: "&8Grau"
+        max-players: 2
+        spawn: bw_map1,-116.4941240556383,24.0,-46.711504564968955,0.4505005,12.000051
+        bed: bw_map1,-112.38290039096438,28.5625,-44.00762525805835,0.8679199,30.917953
+        generator: bw_map1,-115.51781576024531,22.0,-43.45393223163846,-3.7827148,30.317966
+        item-shop: bw_map1,-113.60578097719866,20.0,-45.48987462048072,-0.67614746,-0.27312553
+        upgrade-shop: bw_map1,-111.64087325493593,20.0,-45.48410554806331,-0.67614746,-0.27312553
+
+  bw_map2:
+    lobby-spawn: "world,0,80,0,0,0"
+    min-players: 2
+    max-players: 8
+    generators: {}
+    teams:
+      green:
+        display-name: "&aGrun"
+        max-players: 2
+        spawn: "world,0,80,20,0,0"
+        bed: "world,0,80,22,0,0"
+      blue:
+        display-name: "&9Blau"
+        max-players: 2
+        spawn: "world,-20,80,0,0,0"
+        bed: "world,-22,80,0,0,0"
+      yellow:
+        display-name: "&eGelb"
+        max-players: 2
+        spawn: "world,0,80,-20,0,0"
+        bed: "world,0,80,-22,0,0"
+      red:
+        display-name: "&cRot"
+        max-players: 2
+        spawn: "world,20,80,0,0,0"
+        bed: "world,22,80,0,0"
+
+  bw_map3:
+    lobby-spawn: "world,0,80,0,0,0"
+    min-players: 2
+    max-players: 16
+    generators: {}
+    teams:
+      green:
+        display-name: "&aGrun"
+        max-players: 2
+        spawn: "world,0,80,30,0,0"
+        bed: "world,0,80,32,0,0"
+      blue:
+        display-name: "&9Blau"
+        max-players: 2
+        spawn: "world,-30,80,0,0,0"
+        bed: "world,-32,80,0,0,0"
+      yellow:
+        display-name: "&eGelb"
+        max-players: 2
+        spawn: "world,0,80,-30,0,0"
+        bed: "world,0,80,-32,0,0"
+      red:
+        display-name: "&cRot"
+        max-players: 2
+        spawn: "world,30,80,0,0,0"
+        bed: "world,32,80,0,0"
+      aqua:
+        display-name: "&bAqua"
+        max-players: 2
+        spawn: "world,40,80,10,0,0"
+        bed: "world,42,80,12,0,0"
+      white:
+        display-name: "&fWeiss"
+        max-players: 2
+        spawn: "world,-40,80,10,0,0"
+        bed: "world,-42,80,12,0,0"
+      pink:
+        display-name: "&dPink"
+        max-players: 2
+        spawn: "world,40,80,-10,0,0"
+        bed: "world,42,80,-12,0,0"
+      gray:
+        display-name: "&8Grau"
+        max-players: 2
+        spawn: "world,-40,80,-10,0,0"
+        bed: "world,-42,80,-12,0,0"

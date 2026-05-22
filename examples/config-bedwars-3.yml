@@ -1,0 +1,33 @@
+mode: GAME
+settings:
+  plugin-name-key: nivorabedwars
+game:
+  service-name: "Bedwars-3-1"
+  arena-maps:
+    - bw_map1
+    - bw_map2
+    - bw_map3
+  map-id: bw_map3
+  start-countdown-seconds: 10
+  respawn-delay-seconds: 5
+  reset-delay-seconds: 10
+  disable-hunger: true
+  block-item-drops: true
+  friendly-fire: false
+  allow-damage-in-waiting: false
+cloudnet:
+  static-only: true
+  static-services:
+    - Bedwars-1-1
+    - Bedwars-2-1
+    - Bedwars-3-1
+  service-map-assignments:
+    Bedwars-1-1: bw_map1
+    Bedwars-2-1: bw_map2
+    Bedwars-3-1: bw_map3
+  fallback-service: Lobby-1
+  commands:
+    start: ""
+    connect: ""
+# Wichtig: den kompletten maps:-Abschnitt aus der Haupt-config.yml auf jedem GAME-Server mitkopieren.
+
